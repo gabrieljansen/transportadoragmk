@@ -1,0 +1,35 @@
+.rodoviaria {
+    background-image: url(img/Rodovia.jpg);
+    height: 665px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.circunferencia {
+    background-image: url(img/Caminhao.jpg);
+    background-repeat: no-repeat;
+    border-radius: 49%;
+    border: solid black 2px;
+    width: 380px;
+    height: 380px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.botao {
+   text-align: center;
+}
+
+/*----------------Produtos----------------*/
+
+.carga_seca {
+    color: #007bff;
+}
+
+.exp_seca {
+    font-size: 20px;
+}
+
+.carga_refrigerada {
+    color: #007bff;
+}
