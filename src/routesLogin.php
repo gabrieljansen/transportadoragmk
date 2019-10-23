@@ -39,6 +39,6 @@ return function (App $app) {
         }
 
         // Render index view
-        return $container->get('renderer')->render($response, 'index6.phtml', $args);
+        return $container->get('renderer')->render($response, 'indexcad.phtml', $args);
     });
 };

@@ -44,6 +44,8 @@ $routes = require __DIR__ . '/../src/routesUser.php';
 $routes($app);
 $routes = require __DIR__ . '/../src/routes8.php';
 $routes($app);
+$routes = require __DIR__ . '/../src/routescad.php';
+$routes($app);
 
 
 // Run app
