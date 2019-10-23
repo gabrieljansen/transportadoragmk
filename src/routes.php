@@ -9,11 +9,10 @@ return function (App $app) {
 
     $app->get('/[{name}]', function (Request $request, Response $response, array $args) use ($container) {
 
-      
-
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
+        // AQUI EU DESEVOLVI AS FUNCIONALIDADES DO LOCALIZADOR, MAS VOCÊ NÃO VÊ NADA
 
         // Render index view
         return $container->get('renderer')->render($response, 'index.phtml', $args);
