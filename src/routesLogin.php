@@ -31,7 +31,7 @@ return function (App $app) {
             $_SESSION['login']['ehLogado'] = true;
             $_SESSION['login']['nome'] = $resultSet['nome'];
             
-            return $response->withRedirect('/');
+            return $response->withRedirect('/dados/');
         } else {
             $_SESSION['login']['ehLogado'] = false;
 
