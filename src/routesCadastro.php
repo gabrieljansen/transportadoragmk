@@ -24,8 +24,8 @@ return function (App $app) {
 
         $conexao = $container->get('pdo');
 
-        $result = $conexao->query('INSERT INTO clientes (nome, email, senha, cep, cpf, cnpj) 
-                                   VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['cep'] .'",  "'. $params['cpf'] .'",  "'. $params['cnpj'] .'"        )');
+        $result = $conexao->query('INSERT INTO clientes (nome, email, senha) 
+                                   VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'"        )');
 
 
 
