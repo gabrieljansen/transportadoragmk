@@ -21,17 +21,30 @@ return function (App $app) {
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
         $params = $request->getParsedBody();
+        $nome = $params['nome'];
+        $email = $params['email'];
+        $senha = $params['senha'];
+
 
         $conexao = $container->get('pdo');
 
         $result = $conexao->query('INSERT INTO clientes (nome, email, senha) 
                                    VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'"        )');
 
+$query_select = $conexao->query('SELECT transport FROM clientes where nome = "gabriel" and email = "gabriel@est" and senha = "123"');
 
 
+ 
+  if($nome && $email && $senha   == "" || $nome && $email && $senha == null){
+    echo  "<script>alert('Prencha o campo!');</script>";
+    return $container->get('renderer')->render($response, 'index2.phtml', $args);
 
+  }
+else{
+      return $container->get('renderer')->render($response, 'index6.phtml', $args);
+}
        
-        return $container->get('renderer')->render($response, 'index6.phtml', $args);
+      
     });
 
 };
