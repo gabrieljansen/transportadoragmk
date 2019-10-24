@@ -27,11 +27,10 @@ return function (App $app) {
         $result = $conexao->query('INSERT INTO clientes (nome, email, senha, cep, cpf, cnpj) 
                                    VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['cep'] .'",  "'. $params['cpf'] .'",  "'. $params['cnpj'] .'"        )');
 
-        //echo "<pre>";
-        //print_r($result);
-        //exit;
 
-        // Render index view
+
+
+       
         return $container->get('renderer')->render($response, 'index6.phtml', $args);
     });
 

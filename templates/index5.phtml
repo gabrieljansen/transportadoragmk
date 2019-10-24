@@ -45,8 +45,21 @@
         </div>
         </nav>
 
+        <?
+    if (isset($sucesso)) {
+        if ($sucesso == 'fail') {
+            echo  "<script>alert('Serviço inválido nessa região!');</script>";
+        }
+        if($sucesso == 'true'){
+            echo  "<script>alert('Serviço Válido nessa região!');</script>";
 
+        }
+        
+        
+    }
+?>
 
+        <form action="/servicos/" method="post">
         <div class="row col-12 mx-auto">
             <div id="login" class="col-12 border border-primary">
                 <div class="row ml-5 mt-2">
@@ -57,21 +70,18 @@
                         <i class="fas fa-truck"></i>
                     </div>
                 </div>
-                <div class="col-8 mx-auto ">
-                    <h2> <span class="label label-default">De:</span></h2>
-                    <input class="input-group-text col-12 " placeholder="Insira o local" type="text">
-                </div>
+
                 <div class="col-8 mx-auto">
-                    <h2> <span class="label label-default">Para:</span></h2>
-                    <input class="input-group-text col-12" placeholder="Insira o local" type="text">
+                    <h2> <span class="label label-default">Destino Final:</span></h2>
+                    <input class="input-group-text col-12" placeholder="Insira o local" name="cidade" type="text">
                 </div>
 
 
                 <div class="col-8 mx-auto">
                     <h2> <span class="label label-default">Data:</span></h2>
                     <div class="form-group">
-                        <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                            <input type="text" placeholder="Insira a data" class="input-group-text col-12 form-control datetimepicker-input"
+                        <div  class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                            <input name="data" type="date" placeholder="Insira a data" class="input-group-text col-12 form-control datetimepicker-input"
                                 data-target="#datetimepicker4" />
                             <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -89,7 +99,8 @@
 
 
                 <div class=" mx-auto col-12 ">
-                    <button type="button" class="w-200 mt-3 p-2 mx-auto d-block btn btn-primary">Localizar</button>
+                <button type="submit" value="Enviar" class="w-200 mt-3 p-2 mx-auto d-block btn btn-primary">Localizar</button>
+                
                 </div>
             </div>
 
@@ -108,7 +119,7 @@
 
 
 
-
+                </form>
 </body>
 
 <script src="vendor/jquery/jquery-3.4.1.min.js"></script>
