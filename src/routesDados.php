@@ -23,8 +23,8 @@ $app->post('/dados/', function (Request $request, Response $response, array $arg
 
     $conexao = $container->get('pdo');
 
-    $result = $conexao->query('INSERT INTO informacoes (largura, comprimento, peso, endereco_saida, endereco_chegada, data) 
-                               VALUES ("'. $params['largura'] .'", "'. $params['comprimento'] .'", "'. $params['peso'] .'", "'. $params['endereco_saida'] .'", "'. $params['endereco_chegada'] .'", "'. $params['data'] .'"         )');
+    $result = $conexao->query('INSERT INTO informacoes ( endereco_saida, endereco_chegada, data) 
+                               VALUES ( "'. $params['endereco_saida'] .'", "'. $params['endereco_chegada'] .'", "'. $params['data'] .'"         )');
 
     //echo "<pre>";
     //print_r($result);
