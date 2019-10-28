@@ -31,6 +31,7 @@ return function (App $app) {
         //exit;
 
         // Render index view
-        return $container->get('renderer')->render($response, 'index6.phtml', $args);
+
+        return $response->withRedirect('/perfil/');
     });
 };
