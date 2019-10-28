@@ -40,10 +40,9 @@ $routes = require __DIR__ . '/../src/routesDados.php';
 $routes($app);
 $routes = require __DIR__ . '/../src/routesEmpresa.php';
 $routes($app);
-$routes = require __DIR__ . '/../src/routesUser.php';
+$routes = require __DIR__ . '/../src/routesPerfil.php';
 $routes($app);
-$routes = require __DIR__ . '/../src/routes8.php';
-$routes($app);
+
 
 
 
