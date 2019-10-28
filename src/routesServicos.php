@@ -24,18 +24,17 @@ return function (App $app) {
         $params = $request->getParsedBody();
 
         $resultSet = $conexao->query('SELECT * FROM localizador
-                                      WHERE cidade = "' . $params['cidade'] . '" 
-                                            AND data = "' . ($params['data']) . '"')->fetchAll();
+                                      WHERE cidade = "' . $params['cidade'] . '" ')->fetchAll();
 
 
         if (count($resultSet) == 1) {
-            $_SESSION['servicos']['ehlocalizado'] = true;
-            $_SESSION['servicos']['cidade'] = $resultSet['cidade'];
+            $localizador['servicos']['ehlocalizado'] = true;
+            $localizador['servicos']['cidade'] = $resultSet['cidade'];
             
             return $response->withRedirect('/servicos/true');
            
         } else {
-            $_SESSION['servicos']['ehLocalizado'] = false;
+            $localizador['servicos']['ehLocalizado'] = false;
 
             return $response->withRedirect('/servicos/fail');
         }
