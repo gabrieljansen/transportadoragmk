@@ -24,19 +24,12 @@ return function (App $app) {
 
         $conexao = $container->get('pdo');
 
+        $resultSet = $conexao->query('SELECT nome FROM clientes WHERE nome = "'. $params['nome'] .'"')->fetchAll();
+
         $result = $conexao->query('INSERT INTO clientes (nome, email, senha, imagem) 
                                    VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['imagem'] . '"     )');
-
-
-        $imgName = "profile".$resultSet[0]['id']."." . explode('/',$_FILES["img"]["type"])[1];
-        $target_dir = "public/assets/profileImg/";
-        $target_file = $target_dir . $imgName;
-        move_uploaded_file($_FILES["img"]["tmp_name"], $target_file);   
-        $conexao->query('UPDATE perfil_pessoa SET imagem = "'.$imgName.'" WHERE id = ' . $resultSet[0]['id']);
-
-
        
-        return $container->get('renderer')->render($response, 'index6.phtml', $args);
+       return $container->get('renderer')->render($response, 'index6.phtml', $args);
     });
 
 };
