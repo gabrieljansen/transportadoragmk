@@ -11,6 +11,7 @@ return function (App $app) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
+IMGbancoDeDados
         $conexao = $container->get('pdo');
 
         $usuarioNomme = $_SESSION['imagem']['login']['nome'];
@@ -20,6 +21,26 @@ return function (App $app) {
         
         
         
+
+
+        $conexao = $container->get('pdo');
+
+        $usuarioNome = $_SESSION['login']['nome'];
+
+
+
+        $session = $conexao->query('SELECT * FROM clientes where nome LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
+
+        $args['clientes'] = $session;
+
+        $qry = "SELECT id_cliente, nome FROM clientes";
+
+
+     
+      
+       
+
+master
         // Render index view
         return $container->get('renderer')->render($response, 'index8.phtml', $args);
     });

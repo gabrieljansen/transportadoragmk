@@ -38,14 +38,14 @@
                                 class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/servicos/'"
                                 href="#">Serviços</a></div>
                                 <div class="col-4"> <a
-                                     	class="nav-item nav-link border border-dark rounded bg-primary text-white"onclick="window.location.href='index8.html'"
+                                     	class="nav-item nav-link border border-dark rounded bg-primary text-white"onclick="window.location.href='/perfil/'"
                                         href="#">Perfil</a></div>
                     </div>
                 </div>
             </nav>
         </div>
 
-        <?
+        <?php
     if (isset($sucesso)) {
         if ($sucesso == 'fail') {
             echo  "<script>alert('Login Inválido!');</script>";
@@ -63,8 +63,8 @@
                         <div class="row col-12">
                             <div class=" mx-auto  col-0 py-2">
                                 <h2> <span class="label label-default">Informe seu login e senha</h2>
-                                <input type="text" id="email" name="email" class="col-12 input-group-text" placeholder="Insira seu email">
-                                <input type="password" id="senha" name="senha" class="col-12 input-group-text" placeholder="Insira sua senha">
+                                <input type="text" id="email" name="email" class="col-12 input-group-text" placeholder="Insira seu email" required>
+                                <input type="password" id="senha" name="senha" class="col-12 input-group-text" placeholder="Insira sua senha" required>
                             </div>
  
                             <div class="row col-12 py-2">

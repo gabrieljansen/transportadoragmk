@@ -40,7 +40,7 @@
                                 class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/servicos/'"
                                 href="#">Serviços</a></div>
                                 <div class="col-4"> <a
-                                     	class="nav-item nav-link border border-dark rounded bg-primary text-white"onclick="window.location.href='index8.html'"
+                                     	class="nav-item nav-link border border-dark rounded bg-primary text-white"onclick="window.location.href='/perfil/'"
                                         href="#">Perfil</a></div>
                     </div>
                 </div>
@@ -61,16 +61,16 @@
                     <div class="   col-0 py-2">
             
                         <h3> <span class="label label-default">Endereço de saída</span></h3>
-                        <input type="text"class="input-group-text" placeholder="Insira o endereço" name="endereco_saida">
+                        <input type="text"class="input-group-text" placeholder="Insira o endereço" name="endereco_saida" required>
                         <h3> <span class=" label label-default">Endereço de chegada</span></h3>
-                        <input type="text" class="input-group-text" placeholder="Insira o endereço" name="endereco_chegada">
+                        <input type="text" class="input-group-text" placeholder="Insira o endereço" name="endereco_chegada" required>
                         <h3> <span class="label label-default">Data de saída</span></h3>
                         <div class="container">
                             <div class="row">
-                                <div class=" col-sm-6">
+                                <div class=" col-10">
                                     <div class="form-group">
                                         <div class="input-group date" id="datetimepicker4" data-target-input="nearest" >
-                                            <input type="date" class="input-group-text form-control datetimepicker-input" data-target="#datetimepicker4" name="data">
+                                            <input type="date" class="input-group-text form-control datetimepicker-input" data-target="#datetimepicker4" name="data" required>
                                             <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
@@ -90,9 +90,9 @@
 
                     </div>
 
-                    <div class="row col-12 py-2">
+                    <div class="mx-auto col-8">
                         <div class="d-block  mx-auto  col-0 pl-0">
-                            <button value="Enviar" type="submit" class="btn btn-primary btn-lg">Confirmar</button>
+                            <button value="Enviar" type="submit" class="btn btn-primary w-200 mt-3 p-2 mx-auto d-block">Confirmar</button>
                         </div>
 
                     </div>
