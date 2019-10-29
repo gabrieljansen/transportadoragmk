@@ -26,6 +26,16 @@ return function (App $app) {
     $senha = $params['senha'];
 
 
+IMGbancoDeDados
+        $resultSet = $conexao->query('SELECT nome FROM clientes WHERE nome = "'. $params['nome'] .'"')->fetchAll();
+
+        $result = $conexao->query('INSERT INTO clientes (nome, email, senha, imagem) 
+                                   VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['imagem'] . '"     )');
+       
+       return $container->get('renderer')->render($response, 'index6.phtml', $args);
+    });
+
+
     $conexao = $container->get('pdo');
 
     $result = $conexao->query('INSERT INTO clientes (nome, email, senha) 
@@ -34,4 +44,5 @@ return function (App $app) {
 
 return $response->withRedirect('/login/');
   });
+master
 };
