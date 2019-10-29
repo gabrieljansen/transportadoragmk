@@ -11,6 +11,17 @@ return function (App $app) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
+IMGbancoDeDados
+        $conexao = $container->get('pdo');
+
+        $usuarioNomme = $_SESSION['imagem']['login']['nome'];
+
+        $session = $conexao->query('SELECT * FROM clientes where nome LIKE "%%');
+        
+        
+        
+        
+
 
         $conexao = $container->get('pdo');
 
@@ -29,6 +40,7 @@ return function (App $app) {
       
        
 
+master
         // Render index view
         return $container->get('renderer')->render($response, 'index8.phtml', $args);
     });
