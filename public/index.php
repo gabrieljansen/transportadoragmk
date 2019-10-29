@@ -42,6 +42,8 @@ $routes = require __DIR__ . '/../src/routesEmpresa.php';
 $routes($app);
 $routes = require __DIR__ . '/../src/routesPerfil.php';
 $routes($app);
+$routes = require __DIR__ . '/../src/routesRastreio.php';
+$routes($app);
 
 
 
