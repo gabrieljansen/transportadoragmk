@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="../vendor/fontawesome/css/solid.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
- 
-  
+
+
     <title>Perfil</title>
 
 
@@ -42,8 +42,8 @@
             </nav>
         </div>
 
-        
-        
+
+
 
 
         <form action="/perfil/" method="post"></form>
@@ -53,33 +53,39 @@
 
                 <h1>Perfil do usuário</h1>
 
-            <div class="circunferencia2">
-                <img src="" alt="Imagem de perfil">
+                <div class="circunferencia2">
+
+                    <?php
+
+                    echo '<img src="../img/condomino.PNG" width="185" height="145">';
+                   
+                   
+                    ?>
+                  
+             
+                </div>
+
+                <div class="col-12">
+                    <div class="col-4">
+
+                        <h2><label for="nome">Nome: </label>
+                            <input name="nome" value="<?php echo $clientes[0]['nome']; ?>" size="14" type="text">
+                    </div>
+                    <div class="col-4">
+                        <h2><label for="nome">Email: </label>
+                            <input name="email" value="<?php echo $clientes[0]['email']; ?>" size="15" type="text">
+                    </div>
+
+                    <div class="col-3"> <a class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/rastreio/'" href="#">Rastreamento de produto(s)</a>
 
 
+
+
+                    </div>
+
+                </div>
+                </form>
             </div>
-
-            <div class="col-12">
-                <div class="col-4">
-                    
-                    <h2><label for="nome">Nome: </label>
-                        <input name="nome" value="<?php echo $clientes[0]['nome']; ?>" size="14" type="text">
-                </div>
-                <div class="col-4">
-                    <h2><label for="nome">Email: </label>
-                        <input name="email" value="<?php echo $clientes[0]['email']; ?>" size="15" type="text">
-                </div>
-
-                <div class="col-3"> <a class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/rastreio/'" href="#">Rastreamento de produto(s)</a>
-
-
-                <div class="col-3"> <a class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/perfil/'" href="#">Rastreamento de produto(s)</a>
-
-                </div>
-
-            </div>
-            </form>
-        </div>
 </body>
 
 </html>

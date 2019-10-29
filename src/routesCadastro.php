@@ -24,6 +24,7 @@ return function (App $app) {
     $nome = $params['nome'];
     $email = $params['email'];
     $senha = $params['senha'];
+    $imagem = $params['imagem'];
     $conexao = $container->get('pdo');
         
         $resultSet = $conexao->query('SELECT nome FROM clientes WHERE nome = "'. $params['nome'] .'"')->fetchAll();
