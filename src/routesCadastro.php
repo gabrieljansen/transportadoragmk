@@ -32,6 +32,6 @@ return function (App $app) {
                                    VALUES ("' . $params['nome'] . '",  "' . $params['email'] . '",   "' .  md5($params['senha']) . '"        )');
 
 
-    return $container->get('renderer')->render($response, 'index6.phtml', $args);
+return $response->withRedirect('/login/');
   });
 };
