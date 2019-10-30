@@ -14,7 +14,7 @@ return function (App $app) {
 
         $conexao = $container->get('pdo');
 
-        $usuarioNome = $_SESSION['imagem']['login']['nome'];
+        $usuarioNome = $_SESSION['login']['nome'];
 
         $session = $conexao->query('SELECT * FROM clientes where nome LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
 
