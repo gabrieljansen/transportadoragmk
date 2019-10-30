@@ -32,11 +32,12 @@ return function (App $app) {
         $result = $conexao->query('INSERT INTO clientes (nome, email, senha, imagem) 
                                    VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['imagem'] . '"     )');
        
-       return $container->get('renderer')->render($response, 'index6.phtml', $args);
+       return $response->withRedirect('/login/');
+       return $container->get('renderer')->render($response, 'index2.phtml', $args);
     
     
 
-    return $response->withRedirect('/login/');
+   
   });
 
 };
