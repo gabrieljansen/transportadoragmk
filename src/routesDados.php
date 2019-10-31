@@ -7,7 +7,7 @@ use Slim\Http\Response;
 return function (App $app) {
     $container = $app->getContainer();
 
-    $app->get('/dados/', function (Request $request, Response $response, array $args) use ($container) {
+    $app->get('/dados/[{sucesso}]', function (Request $request, Response $response, array $args) use ($container) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
@@ -31,6 +31,26 @@ return function (App $app) {
         //exit;
 
         // Render index view
+
+        $conexao = $container->get('pdo');
+
+        $params = $request->getParsedBody();
+
+        $resultSet = $conexao->query('SELECT * FROM localizador
+                                      WHERE cidade = "' . $params['cidade'] . '" ')->fetchAll();
+
+
+        if (count($resultSet) == 1) {
+            $localizador['servicos']['ehlocalizado'] = true;
+            $localizador['servicos']['cidade'] = $resultSet['cidade'];
+            
+            return $response->withRedirect('/perfil/');
+           
+        } else {
+            $localizador['servicos']['ehLocalizado'] = false;
+
+            return $response->withRedirect('/dados/fail');
+        }
 
         return $response->withRedirect('/perfil/');
     });

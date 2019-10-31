@@ -46,6 +46,16 @@
                 </div>
             </nav>
         </div>
+        <?php
+    if (isset($sucesso)) {
+        if ($sucesso == 'fail') {
+            echo  "<script>alert('Serviço inválido nessa região!');</script>";
+        }
+      
+        
+        
+    }
+?>
 
 <form action="/dados/" method="post">
         <div class="row mx-auto col-12">
@@ -63,7 +73,7 @@
                         <h3> <span class="label label-default">Endereço de saída</span></h3>
                         <input type="text"class="input-group-text" placeholder="Insira o endereço" name="endereco_saida" required>
                         <h3> <span class=" label label-default">Endereço de chegada</span></h3>
-                        <input type="text" class="input-group-text" placeholder="Insira o endereço" name="endereco_chegada" required>
+                        <input type="text" class="input-group-text" placeholder="Insira o endereço" name="cidade" required>
                         <h3> <span class="label label-default">Data de saída</span></h3>
                         <div class="container">
                             <div class="row">
