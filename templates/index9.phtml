@@ -41,26 +41,26 @@
         
 
 
-        <form action="/perfil/" method="post"></form>
+        <form action="/rastreio/" method="post"></form>
         <div class="row border border-primary col-12 mx-auto">
 
             <div class="col-12">
                 <div class="col-8">
                     <h1> Rastreamento de produtos: </h1>
                     <h2><label for="nome">Endereço de saída: </label>
-                        <input name="endereco_saida" value="<?php echo $clientes[0]['nome']; ?>" size="14" type="text">
+                        <input name="endereco_chegada" value="<?php echo $informacoes[0]['endereco_chegada']; ?>" size="14" type="text">
                 </div>
                 <div class="col-8">
                     <h2><label for="nome">Endereço de chegada: </label>
-                        <input name="endereco_chegada" value="<?php echo $clientes[0]['email']; ?>" size="15" type="text">
+                        <input name="endereco_chegada" value="<?php echo $informacoes[0]['endereco_chegada']; ?>" size="15" type="text">
                 </div>
                 <div class="col-8">
                     <h2><label for="nome">Data de saída: </label>
-                        <input name="data" value="<?php echo $clientes[0]['email']; ?>" size="15" type="date">
+                        <input name="data" value="<?php echo $informacoes[0]['data']; ?>" size="15" type="date">
                 </div>
                 <div class="col-8">
                     <h2><label for="nome">Data de chegada: </label>
-                        <input name="email" value="<?php echo $clientes[0]['email']; ?>" size="15" type="date">
+                        <input name="data_chegada" value="<?php echo $informacoes[0]['data_chegada']; ?>" size="15" type="date">
                 </div>
 
                 <div class="col-2"> <a class="nav-item nav-link border border-dark rounded bg-primary text-white" onclick="window.location.href='/perfil/'" href="#">Voltar para o perfil</a>

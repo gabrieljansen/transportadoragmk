@@ -14,7 +14,7 @@ return function (App $app) {
         // Render index view
         return $container->get('renderer')->render($response, 'index6.phtml', $args);
     });
-
+    
     $app->post('/dados/', function (Request $request, Response $response, array $args) use ($container) {
         // Sample log message
         $container->get('logger')->info("Slim-Skeleton '/' route");
@@ -22,6 +22,7 @@ return function (App $app) {
         $params = $request->getParsedBody();
 
         $conexao = $container->get('pdo');
+
 
         $result = $conexao->query('INSERT INTO informacoes ( endereco_saida, endereco_chegada, data) 
                                VALUES ( "' . $params['endereco_saida'] . '", "' . $params['endereco_chegada'] . '", "' . $params['data'] . '"         )');

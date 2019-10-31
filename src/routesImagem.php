@@ -13,7 +13,7 @@ return function (App $app) {
       $container->get('logger')->info("Slim-Skeleton '/' route");
 
       $conexao = $container->get('pdo');
-      
+    
       
 
       $idCliente = $_GET['id_cliente'];
