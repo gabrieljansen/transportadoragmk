@@ -1,12 +1,12 @@
 .rodoviaria {
-    background-image: url(img/Rodovia.jpg);
+    background-image: url(imgsite/Rodovia.jpg);
     height: 665px;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .circunferencia {
-    background-image: url(img/Caminhao.jpg);
+    background-image: url(imgsite/Caminhao.jpg);
     background-repeat: no-repeat;
     border-radius: 49%;
     border: solid black 2px;

@@ -30,14 +30,24 @@ return function (App $app) {
         $resultSet = $conexao->query('SELECT nome FROM clientes WHERE nome = "'. $params['nome'] .'"')->fetchAll();
 
         $result = $conexao->query('INSERT INTO clientes (nome, email, senha, imagem) 
-                                   VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['imagem'] . '"     )');
+                                   VALUES ("'. $params['nome'] .'",  "'. $params['email'] .'",   "'.  md5($params['senha']) .'",  "'. $params['imagem'] . '")');
+       
+       if($_FILES['imagem']['nome'] != null) {
+        $imgFileType = explode('/',$_FILES["imagem"]["type"])[1];
+       }
+
+       if($_FILES['imagem']['nome'] != null) {
+        $imgName = "perfil"."id_cliente" . $imgFileType;
+        $target_dir = "public/img/";
+        $target_file = $target_dir . $imgName;
+        move_uploaded_file($_FILES["imagem"]["nome"], $target_file);   
+        $conexao->query('UPDATE clientes SET imagem = "'.$imgName.'" WHERE id = ' . $resultSet[0]['id_cliente']);
+        session_destroy();
+    }
        
        return $response->withRedirect('/login/');
        return $container->get('renderer')->render($response, 'index2.phtml', $args);
-    
-    
 
-   
   });
 
 };
