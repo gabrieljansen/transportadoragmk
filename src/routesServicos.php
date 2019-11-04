@@ -24,12 +24,12 @@ return function (App $app) {
         $params = $request->getParsedBody();
 
         $resultSet = $conexao->query('SELECT * FROM localizador
-                                      WHERE cidade = "' . $params['cidade'] . '" ')->fetchAll();
+                                      WHERE endereco_chegada = "' . $params['endereco_chegada'] . '" ')->fetchAll();
 
 
         if (count($resultSet) == 1) {
             $localizador['servicos']['ehlocalizado'] = true;
-            $localizador['servicos']['cidade'] = $resultSet['cidade'];
+            $localizador['servicos']['cidadeendereco_chegada'] = $resultSet['endereco_chegada'];
             
             return $response->withRedirect('/servicos/true');
            
