@@ -8,10 +8,23 @@ return function (App $app) {
     $container = $app->getContainer();
 
     $app->get('/rastreio/', function (Request $request, Response $response, array $args) use ($container) {
-        // Sample log message
+        
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
-        // Render index view
+        $conexao = $container->get('pdo');
+        
+        $usuarioNome = $_SESSION['login']['nome'];
+
+
+        $usuarioNome = $_SESSION['endereco_saida']['endereco_chegada'];
+
+        $session = $conexao->query('SELECT * FROM informacoes where id_produto LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
+
+        $args['informacoes'] = $session;
+
+        $qry = "SELECT id_produto, endereco_saida, endereco_chegada FROM informacoes";
+
+        
         return $container->get('renderer')->render($response, 'index9.phtml', $args);
     });
 };

@@ -26,11 +26,6 @@ return function (App $app) {
         $result = $conexao->query('INSERT INTO informacoes ( endereco_saida, endereco_chegada, data) 
                                VALUES ( "' . $params['endereco_saida'] . '", "' . $params['endereco_chegada'] . '", "' . $params['data'] . '"         )');
 
-        //echo "<pre>";
-        //print_r($result);
-        //exit;
-
-        // Render index view
 
         $conexao = $container->get('pdo');
 
