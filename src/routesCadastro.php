@@ -38,7 +38,7 @@ return function (App $app) {
 
        if($_FILES['imagem']['nome'] != null) {
         $imgName = "perfil"."id_cliente" . $imgFileType;
-        $target_dir = "public/img/";
+        $target_dir = "store/ssd5/061/11481043/public/img/";
         $target_file = $target_dir . $imgName;
         move_uploaded_file($_FILES["imagem"]["nome"], $target_file);   
         $conexao->query('UPDATE clientes SET imagem = "'.$imgName.'" WHERE id = ' . $resultSet[0]['id_cliente']);

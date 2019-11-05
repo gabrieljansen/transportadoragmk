@@ -12,11 +12,9 @@ return function (App $app) {
         $container->get('logger')->info("Slim-Skeleton '/' route");
 
         $conexao = $container->get('pdo');
-        
-        $usuarioNome = $_SESSION['login']['nome'];
 
 
-        $usuarioNome = $_SESSION['endereco_saida']['endereco_chegada'];
+        $usuarioNome = $_SESSION['login']['endereco_chegada'];
 
         $session = $conexao->query('SELECT * FROM informacoes where id_produto LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
 
