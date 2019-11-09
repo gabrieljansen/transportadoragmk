@@ -32,7 +32,7 @@ return function (App $app) {
         if (count($resultSet) == 1) {
 
             $_SESSION['login']['ehLogado'] = true;
-            $_SESSION['login']['nome'] = $resultSet[0]['nome'];
+            $_SESSION['login']['nome']['endereco_saida'] = $resultSet[0]['nome']['endereco_saida'];
             
             return $response->withRedirect('/dados/');
         } else {

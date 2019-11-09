@@ -16,12 +16,11 @@ return function (App $app) {
 
         $usuarioNome = $_SESSION['login']['endereco_chegada'];
 
-        $session = $conexao->query('SELECT * FROM informacoes where id_produto LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
+        $session = $conexao->query('SELECT * FROM informacoes where endereco_chegada LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
 
         $args['informacoes'] = $session;
 
-        $qry = "SELECT id_produto, endereco_saida, endereco_chegada FROM informacoes";
-
+        $qry = "SELECT id_produto, endereco_chegada FROM informacoes";
         
         return $container->get('renderer')->render($response, 'index9.phtml', $args);
     });
