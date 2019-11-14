@@ -27,12 +27,11 @@ return function (App $app) {
                                       WHERE email = "' . $params['email'] . '" 
                                             AND senha = "' . md5($params['senha']) . '"')->fetchAll();
 
-                                            
-
         if (count($resultSet) == 1) {
 
             $_SESSION['login']['ehLogado'] = true;
-            $_SESSION['login']['nome']['endereco_saida'] = $resultSet[0]['nome']['endereco_saida'];
+            $_SESSION['login']['id_cliente'] = $resultSet[0]['id_cliente'];
+            $_SESSION['login']['nome'] = $resultSet[0]['nome'];
             
             return $response->withRedirect('/dados/');
         } else {

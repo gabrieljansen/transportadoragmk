@@ -23,13 +23,7 @@ return function (App $app) {
 
         $conexao = $container->get('pdo');
 
-        $result = $conexao->query('INSERT INTO informacoes ( endereco_saida, endereco_chegada, data) 
-                               VALUES ( "' . $params['endereco_saida'] . '", "' . $params['endereco_chegada'] . '", "' . $params['data'] . '"         )');
-
-
-        $conexao = $container->get('pdo');
-
-        $params = $request->getParsedBody();
+       
 
         $resultSet = $conexao->query('SELECT * FROM localizador
                                       WHERE endereco_chegada = "' . $params['endereco_chegada'] . '" ')->fetchAll();
@@ -38,6 +32,15 @@ return function (App $app) {
         if (count($resultSet) == 1) {
             $localizador['servicos']['ehlocalizado'] = true;
             $localizador['servicos']['endereco_chegada'] = $resultSet['endereco_chegada'];
+            
+             $id_cliente = $_SESSION['login']['id_cliente'];
+
+        $result = $conexao->query('INSERT INTO informacoes ( endereco_saida, endereco_chegada, data, id_clientee) 
+                               VALUES ( "' . $params['endereco_saida'] . '", "' . $params['endereco_chegada'] . '", "' . $params['data'] . '", ' . $id_cliente . ' ) ');
+       
+        $conexao = $container->get('pdo');
+
+        $params = $request->getParsedBody();
             
             return $response->withRedirect('/perfil/');
            

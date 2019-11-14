@@ -39,9 +39,6 @@
         </div>
     </div>
         
-        
-
-
         <form action="/rastreio/" method="post">
         <div class="row border border-primary col-12 mx-auto">
 
@@ -50,15 +47,15 @@
               
                     <h1> Rastreamento de produtos: </h1>
                     <h2><label for="endereco_saida">Endereço de saída: </label>
-                        <input name="endereco_saida" value="<?php echo $informacoes[0]['endereco_saida']; ?>" size="20" type="text">
+                        <input name="endereco_saida" value="<?php echo $informacoes[count($informacoes)-1]['endereco_saida']; ?>" size="20" type="text">
                 </div>
                 <div class="col-8">
                     <h2><label for="endereco_chegada">Endereço de chegada: </label>
-                        <input name="endereco_chegada" value="<?php echo $informacoes[0]['endereco_chegada']; ?>" size="20" type="text">
+                        <input name="endereco_chegada" value="<?php echo $informacoes[count($informacoes)-1]['endereco_chegada']; ?>" size="20" type="text">
                 </div>
                 <div class="col-8">
                     <h2><label for="data">Data de saída: </label>
-                        <input name="data" value="<?php echo $informacoes[0]['data']; ?>" size="20" type="date">
+                        <input name="data" value="<?php echo $informacoes[count($informacoes)-1]['data']; ?>" size="20" type="date">
                 </div>
                 <div class="col-8">
                     <h2><label >Prazo: </label>
@@ -70,8 +67,9 @@
                 </div>
 
             </div>
-            </form>
+            
         </div>
+        </form>
 </body>
 
 </html>

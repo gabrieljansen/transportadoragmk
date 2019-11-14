@@ -14,13 +14,13 @@ return function (App $app) {
         $conexao = $container->get('pdo');
 
 
-        $usuarioNome = $_SESSION['login']['endereco_chegada'];
+        $id = $_SESSION['login']['id_cliente'];
 
-        $session = $conexao->query('SELECT * FROM informacoes where endereco_chegada LIKE "%%' . $usuarioNome . '%%"')->fetchAll();
+        $session = $conexao->query('SELECT * FROM informacoes where id_clientee = ' . $id)->fetchAll();
 
         $args['informacoes'] = $session;
 
-        $qry = "SELECT id_produto, endereco_chegada FROM informacoes";
+        
         
         return $container->get('renderer')->render($response, 'index9.phtml', $args);
     });
