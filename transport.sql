@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Out-2019 às 22:00
+-- Tempo de geração: 11-Nov-2019 às 20:48
 -- Versão do servidor: 10.3.16-MariaDB
 -- versão do PHP: 7.1.30
 
@@ -36,17 +36,21 @@ CREATE TABLE `clientes` (
   `imagem` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
 --
--- Estrutura da tabela `cliente_produto`
+-- Extraindo dados da tabela `clientes`
 --
 
-CREATE TABLE `cliente_produto` (
-  `idcliente_produto` int(10) UNSIGNED NOT NULL,
-  `id_cliente` int(10) UNSIGNED NOT NULL,
-  `id_produto` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `clientes` (`id_cliente`, `nome`, `senha`, `email`, `imagem`) VALUES
+(89, 'g', '202cb962ac59075b964b07152d234b70', 'g@g', 'Palmeiras.png'),
+(90, 'gabriel ', '202cb962ac59075b964b07152d234b70', 'kk@kk', 'Truck.jpg'),
+(91, 'gabriel ', '202cb962ac59075b964b07152d234b70', 'pp@pp', 'Scania.png'),
+(92, 'gabriel ', '202cb962ac59075b964b07152d234b70', 'll@ll', 'Scania.png'),
+(93, 'aaaa', '202cb962ac59075b964b07152d234b70', 'aaa@aaa', 'Palmeiras.png'),
+(94, 'gabriel ', '202cb962ac59075b964b07152d234b70', 'nn@nn', 'Scania.png'),
+(95, 'n', '202cb962ac59075b964b07152d234b70', 'n@n', 'TobataAro18.jpg'),
+(96, 'mn', '202cb962ac59075b964b07152d234b70', 'mn@mn', 'ScaniaBlueStyle.jpeg'),
+(97, 'laun', '202cb962ac59075b964b07152d234b70', 'xx@xx', 'ScaniaBlueStyle.jpeg'),
+(98, 'bbb', '202cb962ac59075b964b07152d234b70', 'bbb@bbb', 'TobataAro18.jpg');
 
 -- --------------------------------------------------------
 
@@ -76,21 +80,35 @@ CREATE TABLE `informacoes` (
   `id_produto` int(11) UNSIGNED NOT NULL,
   `endereco_saida` varchar(45) NOT NULL,
   `endereco_chegada` varchar(45) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `id_clientee` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `informacoes`
 --
 
-INSERT INTO `informacoes` (`id_produto`, `endereco_saida`, `endereco_chegada`, `data`) VALUES
-(1, '', '', '0000-00-00'),
-(2, 'dfsf', 'sdfs', '2019-10-16'),
-(3, 'b', 'b', '2019-10-21'),
-(4, '', '', '0000-00-00'),
-(5, '', '', '0000-00-00'),
-(6, '', '', '0000-00-00'),
-(7, 'bnuu', 'bnu', '2019-10-15');
+INSERT INTO `informacoes` (`id_produto`, `endereco_saida`, `endereco_chegada`, `data`, `id_clientee`) VALUES
+(42, 'Blumenau', 'Blumenau', '2019-12-30', 90),
+(43, 'Blumenau', 'Blumenau', '2019-11-15', 90),
+(44, 'Blumenau', 'Blumenau', '2019-11-22', 89),
+(45, 'Blumenau', 'Blumenau', '2019-11-21', 92),
+(46, 'Blumenau', 'itajai', '2019-11-06', 91),
+(47, 'Blumenau', 'Blumenau', '2019-11-19', 91),
+(48, 'Blumenau', 'Blumenau', '2019-11-08', 90),
+(49, 'Blumenau', 'itajai', '2019-11-19', 90),
+(50, 'Blumenau', 'itajai', '2019-11-13', 90),
+(51, 'Blumenau', 'itajai', '2019-11-20', 90),
+(52, 'Blumenau', 'Blumenau', '2019-11-13', 96),
+(53, 'Blumenau', 'itajai', '2019-11-12', 90),
+(54, 'Blumenau', 'itajai', '2019-11-13', 90),
+(55, 'Blumenau', 'Blumenau', '2019-11-07', 90),
+(56, 'Blumenau', 'itajai', '2019-11-20', 90),
+(57, 'Blumenau', 'itajai', '2019-11-13', 90),
+(58, 'Blumenau', 'itajai', '2019-11-27', 90),
+(59, 'Blumenau', 'itajai', '2019-11-20', 89),
+(60, 'Blumenau', 'itajai', '2019-11-13', 98),
+(61, 'Blumenau', 'Blumenau', '2019-11-20', 98);
 
 -- --------------------------------------------------------
 
@@ -100,7 +118,7 @@ INSERT INTO `informacoes` (`id_produto`, `endereco_saida`, `endereco_chegada`, `
 
 CREATE TABLE `localizador` (
   `idcidade` int(11) UNSIGNED NOT NULL,
-  `cidade` varchar(45) DEFAULT NULL,
+  `endereco_chegada` varchar(45) DEFAULT NULL,
   `data` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -108,7 +126,7 @@ CREATE TABLE `localizador` (
 -- Extraindo dados da tabela `localizador`
 --
 
-INSERT INTO `localizador` (`idcidade`, `cidade`, `data`) VALUES
+INSERT INTO `localizador` (`idcidade`, `endereco_chegada`, `data`) VALUES
 (1, 'Blumenau', '2020-06-18'),
 (2, 'Joinville', '2019-12-06'),
 (3, 'Gaspar', NULL),
@@ -139,14 +157,6 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
--- Índices para tabela `cliente_produto`
---
-ALTER TABLE `cliente_produto`
-  ADD PRIMARY KEY (`idcliente_produto`),
-  ADD KEY `clienteFK_idx` (`id_cliente`),
-  ADD KEY `produtoFK_idx` (`id_produto`);
-
---
 -- Índices para tabela `dados_empresa`
 --
 ALTER TABLE `dados_empresa`
@@ -156,7 +166,8 @@ ALTER TABLE `dados_empresa`
 -- Índices para tabela `informacoes`
 --
 ALTER TABLE `informacoes`
-  ADD PRIMARY KEY (`id_produto`);
+  ADD PRIMARY KEY (`id_produto`),
+  ADD KEY `oooooooooooo_idx` (`id_clientee`);
 
 --
 -- Índices para tabela `localizador`
@@ -172,13 +183,7 @@ ALTER TABLE `localizador`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
-
---
--- AUTO_INCREMENT de tabela `cliente_produto`
---
-ALTER TABLE `cliente_produto`
-  MODIFY `idcliente_produto` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
 
 --
 -- AUTO_INCREMENT de tabela `dados_empresa`
@@ -190,7 +195,7 @@ ALTER TABLE `dados_empresa`
 -- AUTO_INCREMENT de tabela `informacoes`
 --
 ALTER TABLE `informacoes`
-  MODIFY `id_produto` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_produto` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT de tabela `localizador`
@@ -203,11 +208,10 @@ ALTER TABLE `localizador`
 --
 
 --
--- Limitadores para a tabela `cliente_produto`
+-- Limitadores para a tabela `informacoes`
 --
-ALTER TABLE `cliente_produto`
-  ADD CONSTRAINT `clienteFK` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `produtoFK` FOREIGN KEY (`id_produto`) REFERENCES `informacoes` (`id_produto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `informacoes`
+  ADD CONSTRAINT `id_clientee` FOREIGN KEY (`id_clientee`) REFERENCES `clientes` (`id_cliente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
